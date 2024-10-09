@@ -4,7 +4,7 @@ sudo apt install git vim curl python-is-python3 autoconf libtool libosmocore tal
 
 # https://osmocom.org/projects/cellular-infrastructure/wiki/OpenBSC_with_Asterisk
 # https://www.atlantic.net/vps-hosting/how-to-install-asterisk-and-freepbx-on-ubuntu/
-
+# https://stackoverflow.com/questions/47198565/asterisk-compilation
 git clone https://gitea.osmocom.org/cellular-infrastructure/osmo-trx.git
 sudo apt-get install --no-install-recommends libusb-1.0-0-dev libboost-dev
 sudo apt-get install libuhd-dev uhd-host
