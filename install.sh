@@ -1,9 +1,9 @@
 
 sudo apt update -y
-sudo apt install git vim curl python-is-python3 autoconf libtool libosmocore talloc* liburing* libpcsclite* gnutls* libortp-dev libosmo-sccp* libsmpp34* libdbi* htop libedit* libxml2-dev
+sudo apt install git vim curl python-is-python3 autoconf libtool libosmocore talloc* liburing* libpcsclite* gnutls* libortp-dev libosmo-sccp* libsmpp34* libdbi* htop libedit* libxml2-dev asterisk
 
-
-
+# https://osmocom.org/projects/cellular-infrastructure/wiki/OpenBSC_with_Asterisk
+# https://www.atlantic.net/vps-hosting/how-to-install-asterisk-and-freepbx-on-ubuntu/
 
 git clone https://gitea.osmocom.org/cellular-infrastructure/osmo-trx.git
 sudo apt-get install --no-install-recommends libusb-1.0-0-dev libboost-dev
@@ -143,3 +143,25 @@ sudo make install
 make samples
 
 
+# apt-get update
+# apt-get install autoconf
+# cd /usr/src/asterisk/contrib/scripts
+# ./install_prereq install
+Then, the configure step:
+
+# cd /usr/asterisk
+# ./bootstrap.sh
+# ./configure <your fancy options>
+# make menuconfig
+Now, the compile phase:
+
+# make
+Installation of executables and libraries
+
+# make install
+Installation of config templates
+
+# make samples
+Installation of service
+
+# make config
