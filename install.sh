@@ -59,6 +59,13 @@ make -j5
 sudo make install
 cd ..
 
+
+
+## https://osmocom.org/projects/cellular-infrastructure/wiki/Osmocom_Network_In_The_Box
+## https://osmocom.org/projects/osmonitb/wiki/OsmoNITB
+## https://osmocom.org/projects/cellular-infrastructure/wiki/OsmoNITB_migration_guide
+## https://osmocom.org/projects/cellular-infrastructure/wiki/OpenBSC_with_Asterisk
+## https://gist.github.com/shamrin/8b2d6c1493c70544c39e
 ## https://osmocom.org/projects/cellular-infrastructure/wiki/Latest_Builds
 ## https://github.com/miraliumre/gsm/blob/master/README.md
 sudo apt install extrepo
