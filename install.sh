@@ -6,6 +6,8 @@ sudo apt-get install -y --no-install-recommends libusb-1.0-0-dev libboost-dev g+
 sudo apt-get install -y libuhd-dev uhd-host liburing* libpcsclite* gnutls* libortp-dev libosmo-sccp* libsmpp34* libdbi* htop libedit* libxml2-dev asterisk
 sudo apt-get install -y libsoapysdr-dev libi2c-dev libusb-1.0-0-dev ibwxgtk* freeglut3-dev gnuplot libghc-tls* libmnl-dev libsctp-dev
 sudo apt install -y libpcsclite-dev libtalloc-dev libortp-dev libsctp-dev libmnl-dev libdbi-dev libdbd-sqlite3 libsqlite3-dev sqlite3 libc-ares-dev libxml2-dev libssl-dev
+sudo apt install libdbi-dev libdbd-sqlite3 libortp-dev build-essential libtool autoconf autoconf-archive automake git-core pkg-config libtalloc-dev libpcsclite-dev libpcap-dev
+
 ## create folder
 mkdir 2G-Packages
 cd 2G-Packages
@@ -58,6 +60,26 @@ sudo make install
 cd ..
 
 
+
+sudo apt install extrepo
+sudo extrepo enable osmocom-latest
+sudo apt update -y
+sudo apt install git            \
+            telnet         \
+            iptables       \
+            limesuite      \
+            osmo-hlr       \
+            osmo-msc       \
+            osmo-mgw       \
+            osmo-stp       \
+            osmo-bsc       \
+            osmo-ggsn      \
+            osmo-sgsn      \
+            osmo-bts-trx   \
+            osmo-trx-lms   \
+            osmo-pcu       \
+            osmo-cbc       \
+            osmo-cbc-utils -y
 
 ##LigGTPNL
 git clone https://gitea.osmocom.org/cellular-infrastructure/libgtpnl
