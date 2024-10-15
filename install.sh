@@ -1,13 +1,15 @@
 
+# Ubuntu 24.10 Server - RPI4
 sudo apt update -y
-sudo apt install git vim curl python-is-python3 autoconf libtool libosmocore talloc* liburing* libpcsclite* gnutls* libortp-dev libosmo-sccp* libsmpp34* libdbi* htop libedit* libxml2-dev asterisk
+sudo apt install -y git vim curl python-is-python3 autoconf libtool libosmocore  
+sudo apt-get install -y --no-install-recommends libusb-1.0-0-dev libboost-dev
+sudo apt-get install -y libuhd-dev uhd-host liburing* libpcsclite* gnutls* libortp-dev libosmo-sccp* libsmpp34* libdbi* htop libedit* libxml2-dev asterisk
 
+## talloc* failing here
 # https://osmocom.org/projects/cellular-infrastructure/wiki/OpenBSC_with_Asterisk
 # https://www.atlantic.net/vps-hosting/how-to-install-asterisk-and-freepbx-on-ubuntu/
 # https://stackoverflow.com/questions/47198565/asterisk-compilation
 git clone https://gitea.osmocom.org/cellular-infrastructure/osmo-trx.git
-sudo apt-get install --no-install-recommends libusb-1.0-0-dev libboost-dev
-sudo apt-get install libuhd-dev uhd-host
 
 
 
