@@ -2,23 +2,21 @@
 # Ubuntu 24.10 Server - RPI4
 sudo apt update -y
 sudo apt install -y git vim curl python-is-python3 autoconf libtool libosmocore  
-sudo apt-get install -y --no-install-recommends libusb-1.0-0-dev libboost-dev
+sudo apt-get install -y --no-install-recommends libusb-1.0-0-dev libboost-dev g++ cmake libsqlite3-dev
 sudo apt-get install -y libuhd-dev uhd-host liburing* libpcsclite* gnutls* libortp-dev libosmo-sccp* libsmpp34* libdbi* htop libedit* libxml2-dev asterisk
-
+sudo apt-get update -y
+sudo apt-get install libsoapysdr-dev libi2c-dev libusb-1.0-0-dev -y
+sudo apt-get install ibwxgtk* freeglut3-dev gnuplot -y
+sudo apt-get install libghc-tls* libmnl-dev libsctp-dev -y
+## create folder
+mkdir 2G-Packages
+cd 2G-Packages
 ## talloc* failing here
 # https://osmocom.org/projects/cellular-infrastructure/wiki/OpenBSC_with_Asterisk
 # https://www.atlantic.net/vps-hosting/how-to-install-asterisk-and-freepbx-on-ubuntu/
 # https://stackoverflow.com/questions/47198565/asterisk-compilation
 git clone https://gitea.osmocom.org/cellular-infrastructure/osmo-trx.git
-
-
-
-
-
 git clone https://gitea.osmocom.org/cellular-infrastructure/osmo-bts.git
-
-
-
 git clone git://git.osmocom.org/openbsc.git
 
 
@@ -29,17 +27,8 @@ git clone git://git.osmocom.org/openbsc.git
 sudo add-apt-repository -y ppa:myriadrf/drivers
 sudo apt-get update -y
 
-## install core library and build dependencies
-sudo apt-get install git g++ cmake libsqlite3-dev -y
 
-## install hardware support dependencies
-sudo apt-get install libsoapysdr-dev libi2c-dev libusb-1.0-0-dev -y
 
-## install graphics dependencies
-sudo apt-get install ibwxgtk* freeglut3-dev gnuplot -y
-
-## install other dependency
-sudo apt-get install libghc-tls* libmnl-dev libsctp-dev -y
 
 
 ## LimeSuite
