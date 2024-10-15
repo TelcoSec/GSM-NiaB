@@ -39,16 +39,16 @@ cmake ../
 make -j4
 sudo make install
 sudo ldconfig
-
-cd LimeSuite/udev-rules
+cd ..
+cd  udev-rules
 sudo sh ./install.sh
+cd ../..
 
 
 
 
-
-sudo apt-get install libsofia-sip-ua-glib-dev
-sudo apt-get install build-essential libtool libortp-dev dahdi-source libsctp-dev shtool autoconf automake git-core pkg-config make gcc libosmo-gsup-client*
+sudo apt-get install -y libsofia-sip-ua-glib-dev
+sudo apt-get install -y build-essential libtool libortp-dev dahdi-source libsctp-dev shtool autoconf automake git-core pkg-config make gcc libosmo-gsup-client*
 
 
 git clone https://gitea.osmocom.org/osmocom/libosmo-abis
@@ -57,65 +57,65 @@ autoreconf -fi
 ./configure
 make -j5
 sudo make install
+cd ..
+
 
 
 ##LigGTPNL
 git clone https://gitea.osmocom.org/cellular-infrastructure/libgtpnl
-autoreconf -fi && ./configure && make && make install
+cd libgtpnl/
+autoreconf -fi && ./configure && make -j5 && sudo make install
+cd ..
 
 
-cd osmo
 git clone https://gitea.osmocom.org/osmocom/libosmocore
 cd libosmocore
-autoreconf -fi
-./configure
-make -j5
-sudo make install
+autoreconf -fi && ./configure && make -j5 && sudo make install
+cd ..
 
 
-cd osmo
+
 git clone https://gitea.osmocom.org/osmocom/libosmo-abis
 cd libosmo-abis
-autoreconf -fi
-./configure
-make -j5
-sudo make install
+autoreconf -fi && ./configure && make -j5 && sudo make install
+cd ..
 
-cd osmo
+
+
+
 git clone https://gitea.osmocom.org/osmocom/libosmo-netif
 cd libosmo-netif
-autoreconf -fi
-./configure
-make -j5
-sudo make install
-cd osmo
+autoreconf -fi && ./configure && make -j5 && sudo make install && cd ..
+
+
 git clone https://gitea.osmocom.org/osmocom/libosmo-sccp
 cd libosmo-sccp
-autoreconf -fi
-./configure
-make -j5
-sudo make install
-cd osmo
+autoreconf -fi && ./configure && make -j5 && sudo make install && cd ..
+
+
+
+
 git clone https://gitea.osmocom.org/cellular-infrastructure/libsmpp34
 cd libsmpp34
-autoreconf -fi
-./configure
-make
-sudo make install
-cd osmo
+autoreconf -fi && ./configure && make -j5 && sudo make install && cd ..
+
+
+
+
 git clone https://gitea.osmocom.org/cellular-infrastructure/osmo-ggsn
 cd osmo-ggsn
-autoreconf -fi
-./configure
-make -j5
-sudo make install
-cd osmo
+autoreconf -fi && ./configure && make -j5 && sudo make install && cd ..
+
+
+
+
 git clone https://gitea.osmocom.org/cellular-infrastructure/openbsc
 cd openbsc/openbsc
-autoreconf -fi
-./configure --enable-smpp --enable-osmo-bsc --enable-nat
-make -j5
-sudo make install $$ sudo ldconfig
+sudo apt install -y talloc*
+autoreconf -fi && ./configure --enable-smpp --enable-osmo-bsc --enable-nat && make -j5 && sudo make install && sudo ldconfig && cd ..
+
+
+
 cd osmo
 git clone https://gitea.osmocom.org/cellular-infrastructure/osmo-bts
 cd osmo-bts
