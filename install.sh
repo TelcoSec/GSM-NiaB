@@ -4,10 +4,8 @@ sudo apt update -y
 sudo apt install -y git vim curl python-is-python3 autoconf libtool libosmocore  
 sudo apt-get install -y --no-install-recommends libusb-1.0-0-dev libboost-dev g++ cmake libsqlite3-dev
 sudo apt-get install -y libuhd-dev uhd-host liburing* libpcsclite* gnutls* libortp-dev libosmo-sccp* libsmpp34* libdbi* htop libedit* libxml2-dev asterisk
-sudo apt-get update -y
-sudo apt-get install libsoapysdr-dev libi2c-dev libusb-1.0-0-dev -y
-sudo apt-get install ibwxgtk* freeglut3-dev gnuplot -y
-sudo apt-get install libghc-tls* libmnl-dev libsctp-dev -y
+sudo apt-get install -y libsoapysdr-dev libi2c-dev libusb-1.0-0-dev ibwxgtk* freeglut3-dev gnuplot libghc-tls* libmnl-dev libsctp-dev
+sudo apt install -y libpcsclite-dev libtalloc-dev libortp-dev libsctp-dev libmnl-dev libdbi-dev libdbd-sqlite3 libsqlite3-dev sqlite3 libc-ares-dev libxml2-dev libssl-dev
 ## create folder
 mkdir 2G-Packages
 cd 2G-Packages
@@ -134,25 +132,19 @@ sudo make install
 make samples
 
 
-# apt-get update
-# apt-get install autoconf
-# cd /usr/src/asterisk/contrib/scripts
-# ./install_prereq install
-Then, the configure step:
 
-# cd /usr/asterisk
-# ./bootstrap.sh
-# ./configure <your fancy options>
-# make menuconfig
-Now, the compile phase:
+sudo su
+apt-get update
+apt-get install autoconf
+cd /usr/src/asterisk/contrib/scripts
+./install_prereq install
 
-# make
-Installation of executables and libraries
 
-# make install
-Installation of config templates
-
-# make samples
-Installation of service
-
-# make config
+cd /usr/asterisk
+./bootstrap.sh
+./configure <your fancy options>
+make menuconfig
+make
+make install
+make samples
+make config
