@@ -59,7 +59,7 @@ make -j5
 sudo make install
 cd ..
 
-
+## https://osmocom.org/projects/cellular-infrastructure/wiki/Latest_Builds
 ## https://github.com/miraliumre/gsm/blob/master/README.md
 sudo apt install extrepo
 sudo extrepo enable osmocom-latest
