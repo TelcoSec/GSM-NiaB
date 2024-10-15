@@ -60,7 +60,7 @@ sudo make install
 cd ..
 
 
-
+## https://github.com/miraliumre/gsm/blob/master/README.md
 sudo apt install extrepo
 sudo extrepo enable osmocom-latest
 sudo apt update -y
