@@ -58,7 +58,7 @@ html.Div(
     style={"width": 240},
 )
 
-df = pd.read_csv('https://cdn.telco-sec.com/cell_towers.csv')
+df = pd.read_csv('./cell_towers.csv')
 
 app = Dash()
 app.title = "RFS GSM enumeration"
