@@ -17,11 +17,14 @@ sudo apt install -y osmo-hlr osmo-msc osmo-mgw osmo-stp osmo-bsc osmo-ggsn osmo-
 
 
 # Asterix
+# Docs https://docs.asterisk.org/
 git clone https://github.com/asterisk/asterisk.git
 cd asterisk
 sudo apt install uuid-dev libedit* libxml2 libxml2-dev libsqlite3-dev
 ./configure --with-jansson-bundled
 make
 sudo make install
+sudo make config
 sudo make samples
 sudo make basic-pbx
+sudo make install-logrotate
