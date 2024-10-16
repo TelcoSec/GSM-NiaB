@@ -4,6 +4,17 @@
 
 ## Portable GSM Stack
 
+The goal of this lab is to create a GSM network with internet access and execute calls between our mobile phones.
+
+
+- 2 SIM cards provisioned to our network
+- 1 BTS
+- GSM Core
+- PBX
+
+
+
+
 
 - Asterix
 - OSMOCOM
@@ -12,7 +23,7 @@
 
 
 
-
+## Learn GSM
 - https://gsm.learn-telecom.com
 - https://ss7.learn-telecom.com
 - https://diameter.learn-telecom.com
@@ -22,3 +33,10 @@
 - https://sip.learn-telecom.com
 - https://ims.learn-telecom.com
 - https://mobiles.learn-telecom.com
+
+
+
+## Build you LAB
+
+1. Using Docker
+2. Install in Debian
