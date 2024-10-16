@@ -23,4 +23,5 @@ sudo apt install uuid-dev libedit* libxml2 libxml2-dev libsqlite3-dev
 ./configure --with-jansson-bundled
 make
 sudo make install
-make samples
+sudo make samples
+sudo make basic-pbx

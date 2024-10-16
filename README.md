@@ -6,7 +6,7 @@
 
 The goal of this lab is to create a GSM network with internet access and execute calls between our mobile phones.
 
-## Build you LAB
+## Installation
 
 1. Using Docker
 2. Install in Debian
