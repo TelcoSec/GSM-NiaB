@@ -6,20 +6,18 @@
 
 The goal of this lab is to create a GSM network with internet access and execute calls between our mobile phones.
 
+## Build you LAB
+
+1. Using Docker
+2. Install in Debian
+
+
 
 - 2 SIM cards provisioned to our network
 - 1 BTS
-- GSM Core
-- PBX
-
-
-
-
-
-- Asterix
-- OSMOCOM
-- LimeSDR
-- SIM Cards
+- GSM Core - OSMO
+- PBX Asterix
+- Internet Connection
 
 
 
@@ -36,7 +34,3 @@ The goal of this lab is to create a GSM network with internet access and execute
 
 
 
-## Build you LAB
-
-1. Using Docker
-2. Install in Debian
