@@ -69,7 +69,6 @@ app.layout = [
        title="Welcome!",
        color="violet",
     ),
-    forceColorScheme="dark",
     dcc.Dropdown(df.country.unique(), 'Portugal', id='dropdown-selection'),
     dcc.Graph(id='graph-content'),
     #dash_table.DataTable(df.to_dict('records'), [{"name": i, "id": i} for i in df.columns])
