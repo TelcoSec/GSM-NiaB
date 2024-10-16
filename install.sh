@@ -28,3 +28,6 @@ sudo make config
 sudo make samples
 sudo make basic-pbx
 sudo make install-logrotate
+
+sudo systemctl enable asterisk
+sudo systemctl restart asterisk
