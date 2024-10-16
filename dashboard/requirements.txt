@@ -2,3 +2,5 @@ dash
 plotly
 pandas
 gunicorn
+dash-mantine-components
+dash_iconify
