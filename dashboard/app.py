@@ -58,7 +58,7 @@ html.Div(
     style={"width": 240},
 )
 
-df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/gapminder_unfiltered.csv')
+df = pd.read_csv('https://cdn.telco-sec.com/cell_towers.csv')
 
 app = Dash()
 app.title = "RFS GSM enumeration"
@@ -69,9 +69,9 @@ app.layout = [
        title="Welcome!",
        color="violet",
     ),
-    dcc.Dropdown(df.country.unique(), 'Portugal', id='dropdown-selection'),
+    dcc.Dropdown(df.radio.unique(), 'GSM', id='dropdown-selection'),
     dcc.Graph(id='graph-content'),
-    #dash_table.DataTable(df.to_dict('records'), [{"name": i, "id": i} for i in df.columns])
+    dash_table.DataTable(df.to_dict('records'), [{"name": i, "id": i} for i in df.columns])
 ]
 
 @callback(
@@ -79,8 +79,8 @@ app.layout = [
     Input('dropdown-selection', 'value')
 )
 def update_graph(value):
-    dff = df[df.country==value]
-    return px.line(dff, x='year', y='pop')
+    dff = df[df.radio==value]
+    return px.line(dff, x='mcc', y='net')
 
 if __name__ == '__main__':
     app.run_server(host= '0.0.0.0',debug=False)
