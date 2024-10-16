@@ -31,3 +31,7 @@ sudo make install-logrotate
 
 sudo systemctl enable asterisk
 sudo systemctl restart asterisk
+
+
+
+
