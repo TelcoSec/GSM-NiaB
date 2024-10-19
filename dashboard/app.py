@@ -58,7 +58,7 @@ html.Div(
     style={"width": 240},
 )
 
-df = pd.read_csv('./cell_towers.csv')
+df = pd.read_csv('268.csv')
 
 app = Dash()
 app.title = "RFS GSM enumeration"
