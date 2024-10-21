@@ -15,6 +15,7 @@ sudo apt install -y osmo-hlr osmo-msc osmo-mgw osmo-stp osmo-bsc osmo-ggsn osmo-
 sudo apt install libhackrf-dev hackrf gr-gsm -y
 sudo apt install libdbi-dev libdbd-sqlite3 libortp-dev build-essential libtool autoconf autoconf-archive automake git-core pkg-config libtalloc-dev libpcsclite-dev libpcap-dev
 sudo apt-get install libuhd-dev uhd-host
+sudo apt install gr-gsm wireshark gqrx-sdr cardpeek
 
 sudo apt-get install libsoapysdr-dev libi2c-dev libusb-1.0-0-dev
 sudo apt-get install libwxgtk3.0-dev freeglut3-dev
