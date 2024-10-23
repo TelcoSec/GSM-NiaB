@@ -6,6 +6,11 @@
 
 The goal of this lab is to create a GSM network with internet access and execute calls between our mobile phones.
 
+
+## OS
+1. Debian 12 RPI4
+2. Linux RPI4-GSM-B0x 6.6.31+rpt-rpi-v8 #1 SMP PREEMPT Debian 1:6.6.31-1+rpt1 (2024-05-29) aarch64 GNU/Linux
+
 ## Installation
 
 1. Using Docker
@@ -36,7 +41,17 @@ The goal of this lab is to create a GSM network with internet access and execute
 
 ## Console Access
 
+- OsmoCBC version 0.5.0
+telnet 127.0.0.1 4264
 
-- CBC telnet 127.0.0.1 4264
-- HLR telnet 127.0.0.1 4258
+- OsmoHLR version 1.8.0
+telnet 127.0.0.1 4258
 
+- OsmoBTS version 1.8.0
+- OsmoTRX version 1.7.0
+- OsmoBSC version 1.12.1
+- OsmoMSC version 1.12.1
+- OsmoMGW version 1.13.1
+- OsmoSTP version 2.0.1
+- OsmoSGSN version 1.12.1
+- OsmoGGSN version 1.12.0
