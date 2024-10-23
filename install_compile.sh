@@ -1,8 +1,8 @@
 sudo apt update -y
 sudo apt upgrade -y
 sudo apt install -y git vim curl python-is-python3 autoconf libtool libosmocore  
-sudo apt-get install -y --no-install-recommends libusb-1.0-0-dev libboost-dev g++ cmake libsqlite3-dev
-sudo apt-get install -y libuhd-dev uhd-host liburing* libpcsclite* gnutls* libortp-dev libosmo-sccp* libsmpp34* libdbi* htop libedit* libxml2-dev asterisk
+sudo apt-get install -y libusb-1.0-0-dev libboost-dev g++ cmake libsqlite3-dev
+sudo apt-get install -y libuhd-dev uhd-host liburing* libpcsclite* gnutls* libortp-dev libosmo-sccp*  libdbi* htop libedit* libxml2-dev asterisk
 sudo apt-get install -y libsoapysdr-dev libi2c-dev libusb-1.0-0-dev ibwxgtk* freeglut3-dev gnuplot libghc-tls* libmnl-dev libsctp-dev
 sudo apt install -y libpcsclite-dev libtalloc-dev libortp-dev libsctp-dev libmnl-dev libdbi-dev libdbd-sqlite3 libsqlite3-dev sqlite3 libc-ares-dev libxml2-dev libssl-dev
 sudo apt install libdbi-dev libdbd-sqlite3 libortp-dev build-essential libtool autoconf autoconf-archive automake git-core pkg-config libtalloc-dev libpcsclite-dev libpcap-dev
@@ -50,6 +50,16 @@ sudo apt-get install -y libsofia-sip-ua-glib-dev
 sudo apt-get install -y build-essential libtool libortp-dev dahdi-source libsctp-dev shtool autoconf automake git-core pkg-config make gcc libosmo-gsup-client*
 
 
+
+git clone https://gitea.osmocom.org/osmocom/libosmocore
+cd libosmocore
+autoreconf -fi && ./configure && make -j5 && sudo make install
+cd ..
+
+
+
+
+
 git clone https://gitea.osmocom.org/osmocom/libosmo-abis
 cd libosmo-abis
 autoreconf -fi
@@ -75,10 +85,6 @@ autoreconf -fi && ./configure && make -j5 && sudo make install
 cd ..
 
 
-git clone https://gitea.osmocom.org/osmocom/libosmocore
-cd libosmocore
-autoreconf -fi && ./configure && make -j5 && sudo make install
-cd ..
 
 
 

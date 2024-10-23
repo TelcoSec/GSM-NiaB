@@ -34,3 +34,9 @@ The goal of this lab is to create a GSM network with internet access and execute
 
 
 
+## Console Access
+
+
+- CBC telnet 127.0.0.1 4264
+- HLR telnet 127.0.0.1 4258
+
