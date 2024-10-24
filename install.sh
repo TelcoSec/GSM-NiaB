@@ -14,12 +14,12 @@ sudo apt install -y telnet iptables git limesuite bladerf python3-pip python3-fl
 sudo apt install libhackrf-dev hackrf gr-gsm -y
 sudo apt install -y osmo-hlr osmo-msc osmo-mgw osmo-stp osmo-bsc
 sudo apt install -y osmo-ggsn osmo-sgsn osmo-bts-trx osmo-trx-lms osmo-pcu osmo-cbc osmo-cbc-utils
-sudo apt-get install build-essential cmake gawk gcc g++ gfortran git texinfo bison  wget bzip2 libncurses-dev libssl-dev openssl zlib1g-dev
-sudo apt install libdbi-dev libdbd-sqlite3 libortp-dev build-essential libtool autoconf autoconf-archive automake git-core pkg-config libtalloc-dev libpcsclite-dev libpcap-dev
-sudo apt-get install libuhd-dev uhd-host
+sudo apt install -y build-essential cmake gawk gcc g++ gfortran git texinfo bison  wget bzip2 libncurses-dev libssl-dev openssl zlib1g-dev
+sudo apt install -y libdbi-dev libdbd-sqlite3 libortp-dev build-essential libtool autoconf autoconf-archive automake git-core pkg-config libtalloc-dev libpcsclite-dev libpcap-dev
+sudo apt install -y libuhd-dev uhd-host
 sudo apt install -y wireshark tcpdump gqrx-sdr cardpeek
 sudo apt install -y libsctp-dev libconfig++-dev libconfig-dev libmbedtls-dev
-apt install -y libtalloc-dev libgnutls28-dev libmnl-dev
+sudo apt install -y libtalloc-dev libgnutls28-dev libmnl-dev
 
 sudo apt-get install libsoapysdr-dev libi2c-dev libusb-1.0-0-dev
 sudo apt-get install libwxgtk3.0-dev freeglut3-dev
