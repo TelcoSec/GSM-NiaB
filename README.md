@@ -41,12 +41,15 @@ The goal of this lab is to create a GSM network with internet access and execute
 
 ## Console Access
 
+1. telnet 127.0.0.1 4264 - CBC
+2. telnet 127.0.0.1 4258 - HLR
+3. telnet 127.0.0.1 4242 - BSC
+4. telnet 127.0.0.1 4241 - BTS
+## Versions used
+
+
 - OsmoCBC version 0.5.0
-telnet 127.0.0.1 4264
-
 - OsmoHLR version 1.8.0
-telnet 127.0.0.1 4258
-
 - OsmoBTS version 1.8.0
 - OsmoTRX version 1.7.0
 - OsmoBSC version 1.12.1
