@@ -16,13 +16,13 @@ echo """
 www.telco-sec.com                                            
 www.learn-telecom.com
 by RFS
-
+SISO for MIMO use BladeRF
 RPI4 + LimeSDR + OsmoCom + eSIMs
 """
 show_menu() {
   clear
   echo "---------------------------"
-  echo "           Menu           "
+  echo "      RFS GSM Menu         "
   echo "---------------------------"
   echo "1. Install Dependencies"
   echo "2. Install LimeSDR Drivers"
@@ -63,10 +63,7 @@ while true; do
       echo "You selected Option 3"
       # Add your code for Option 3 here
       read -p "Press Enter to continue..."
-      ;;
-
-
-      
+      ;;      
     6)
       echo "Exiting..."
       break
@@ -167,7 +164,7 @@ sudo apt-get install -y \
 sudo apt install libxcb-cursor0
 export QT_QPA_PLATFORM=offscreen
 
-
+LimeUtil --info
 
 
 sudo apt-get update && sudo apt-get -y install \
