@@ -14,31 +14,39 @@ echo """
                                             
 www.telco-sec.com                                            
 www.learn-telecom.com
-
+by RFS
 """
 
 
 
 sudo hostnamectl set-hostname 2g-b0x.telecom.rfs
 
-sudo apt install extrepo
-sudo extrepo enable osmocom-latest
-sudo apt update -y
-sudo apt install -y telnet iptables git limesuite bladerf python3-pip python3-flask
-sudo apt install libhackrf-dev hackrf gr-gsm -y
-sudo apt install -y osmo-hlr osmo-msc osmo-mgw osmo-stp osmo-bsc
-sudo apt install -y osmo-ggsn osmo-sgsn osmo-bts-trx osmo-trx-lms osmo-pcu osmo-cbc osmo-cbc-utils
-sudo apt install -y build-essential cmake gawk gcc g++ gfortran git texinfo bison  wget bzip2 libncurses-dev libssl-dev openssl zlib1g-dev
-sudo apt install -y libdbi-dev libdbd-sqlite3 libortp-dev build-essential libtool autoconf autoconf-archive automake git-core pkg-config libtalloc-dev libpcsclite-dev libpcap-dev
-sudo apt install -y libuhd-dev uhd-host
-sudo apt install -y wireshark tcpdump gqrx-sdr cardpeek
-sudo apt install -y libsctp-dev libconfig++-dev libconfig-dev libmbedtls-dev
-sudo apt install -y libtalloc-dev libgnutls28-dev libmnl-dev
-sudo apt install -y rpi-imager
-sudo apt install -y libsoapysdr-dev libi2c-dev libusb-1.0-0-dev
-sudo apt install -y libwxgtk3.0-dev freeglut3-dev
+
+add_osmocom_repo() {
+ sudo apt update -y
+ echo "Adding Osmocom repo....\n"
+ sudo apt install extrepo
+ sudo extrepo enable osmocom-latest
+}
+
+install_osmocom() {
+ sudo apt install -y osmo-hlr osmo-msc osmo-mgw osmo-stp osmo-bsc
+ sudo apt install -y osmo-ggsn osmo-sgsn osmo-bts-trx osmo-trx-lms osmo-pcu osmo-cbc osmo-cbc-utils
+}
+
+install_basic_tools() {
+ sudo apt install -y telnet \
+ iptables git python3-pip python3-flask \
+ rpi-imager wireshark tcpdump \
+ cardpeek cmake build-essential gawk gcc g++ gfortran \
+ git texinfo bison  wget bzip2 libncurses-dev \
+ libssl-dev openssl zlib1g-dev libsqlite3-dev
 
 
+}
+
+
+install_asterisk() {
 # Asterix
 # Docs https://docs.asterisk.org/
 git clone https://github.com/asterisk/asterisk.git
@@ -51,10 +59,20 @@ sudo make config
 sudo make samples
 sudo make basic-pbx
 sudo make install-logrotate
-
+cd ..
 sudo systemctl enable asterisk
 sudo systemctl restart asterisk
+}
 
+sudo apt install libhackrf-dev hackrf gr-gsm -y
+
+sudo apt install -y libdbi-dev libdbd-sqlite3 libortp-dev build-essential libtool autoconf autoconf-archive automake git-core pkg-config libtalloc-dev libpcsclite-dev libpcap-dev
+sudo apt install -y libuhd-dev uhd-host gqrx-sdr  limesuite bladerf
+sudo apt install -y libsctp-dev libconfig++-dev libconfig-dev libmbedtls-dev
+sudo apt install -y libtalloc-dev libgnutls28-dev libmnl-dev
+sudo apt install -y libsoapysdr-dev libi2c-dev libusb-1.0-0-dev
+sudo apt install -y libwxgtk3.0-dev freeglut3-dev
+sudo apt install -y libi2c-dev libusb-1.0-0-dev libwxgtk* freeglut3-dev sqlite3 
 
 
 
@@ -77,14 +95,14 @@ sudo apt-get install -y \
     libosmocore-dev
 
 
-sudo apt-get install git g++ cmake libsqlite3-dev
-sudo apt-get install libi2c-dev libusb-1.0-0-dev
-sudo apt-get install libwxgtk* freeglut3-dev sqlite3 
+
+
+
 
 
 
 sudo apt-get update && sudo apt-get -y install \
-git cmake g++ pkg-config autoconf automake libtool libfftw3-dev libusb-1.0-0-dev libusb-dev libhidapi-dev libopengl-dev \
+pkg-config autoconf automake libtool libfftw3-dev libusb-1.0-0-dev libusb-dev libhidapi-dev libopengl-dev \
 qtbase5-dev qtchooser libqt5multimedia5-plugins qtmultimedia5-dev libqt5websockets5-dev \
 qttools5-dev qttools5-dev-tools libqt5opengl5-dev libqt5quick5 libqt5charts5-dev \
 qml-module-qtlocation  qml-module-qtpositioning qml-module-qtquick-window2 \
