@@ -6,7 +6,7 @@
 
 The goal of this lab is to create a GSM network with internet access and execute calls between our mobile phones.
 
-SISO for MIMO use BladeRF
+LimeSDR only allow SISO for MIMO use BladeRF
 ## OS
 1. Debian 12 RPI4
 2. Linux RPI4-GSM-B0x 6.6.31+rpt-rpi-v8 #1 SMP PREEMPT Debian 1:6.6.31-1+rpt1 (2024-05-29) aarch64 GNU/Linux
@@ -16,7 +16,30 @@ SISO for MIMO use BladeRF
 1. Install in Debian 12 - no GUI
 2. Download my Image Ready for RPI4
 
+## Osmocom Versions
+- OsmoCBC version 0.5.0
+- OsmoHLR version 1.8.0
+- OsmoBTS version 1.8.0
+- OsmoTRX version 1.7.0
+- OsmoBSC version 1.12.1
+- OsmoMSC version 1.12.1
+- OsmoMGW version 1.13.1
+- OsmoSTP version 2.0.1
+- OsmoSGSN version 1.12.1
+- OsmoGGSN version 1.12.0
 
+## LimeSDR Info
+
+'''bash
+rfs@2g-b0x:~ $ LimeUtil --info
+'''
+
+- Library version:      v23.11.0-23.11.0
+- Build timestamp:      2023-11-20
+- Interface version:    v2023.11.0
+- Binary interface:     23.11-1
+
+- 
 ## Configuration
 - 2 SIM cards provisioned to our network
 - 1 BTS
@@ -48,25 +71,4 @@ SISO for MIMO use BladeRF
 5. telnet 127.0.0.1 4237 - OsmoTRX
 ## Versions used
 
-## Osmocom Versions
-- OsmoCBC version 0.5.0
-- OsmoHLR version 1.8.0
-- OsmoBTS version 1.8.0
-- OsmoTRX version 1.7.0
-- OsmoBSC version 1.12.1
-- OsmoMSC version 1.12.1
-- OsmoMGW version 1.13.1
-- OsmoSTP version 2.0.1
-- OsmoSGSN version 1.12.1
-- OsmoGGSN version 1.12.0
 
-
-## LimeSDR
-
-
-
-### Version information:
-- Library version:      v23.11.0-23.11.0
-- Build timestamp:      2023-11-20
-- Interface version:    v2023.11.0
-- Binary interface:     23.11-1
