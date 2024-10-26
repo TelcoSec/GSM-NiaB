@@ -45,6 +45,7 @@ The goal of this lab is to create a GSM network with internet access and execute
 2. telnet 127.0.0.1 4258 - HLR
 3. telnet 127.0.0.1 4242 - BSC
 4. telnet 127.0.0.1 4241 - BTS
+5. telnet 127.0.0.1 4237 - OsmoTRX
 ## Versions used
 
 
@@ -58,3 +59,16 @@ The goal of this lab is to create a GSM network with internet access and execute
 - OsmoSTP version 2.0.1
 - OsmoSGSN version 1.12.1
 - OsmoGGSN version 1.12.0
+
+
+## LimeSDR
+
+######################################################
+## LimeSuite information summary
+######################################################
+
+### Version information:
+- Library version:      v23.11.0-23.11.0
+- Build timestamp:      2023-11-20
+- Interface version:    v2023.11.0
+- Binary interface:     23.11-1
