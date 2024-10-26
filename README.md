@@ -1,8 +1,8 @@
-# GSM In A B0x
+# GSM In A B0x by RFS
 
 
 
-## Portable GSM Stack
+## Portable GSM / GPRS Stack
 
 The goal of this lab is to create a GSM network with internet access and execute calls between our mobile phones.
 
@@ -30,9 +30,9 @@ LimeSDR only allow SISO for MIMO use BladeRF
 
 ## LimeSDR Info
 
-'''bash
+
 rfs@2g-b0x:~ $ LimeUtil --info
-'''
+
 
 - Library version:      v23.11.0-23.11.0
 - Build timestamp:      2023-11-20
@@ -47,6 +47,13 @@ rfs@2g-b0x:~ $ LimeUtil --info
 - PBX Asterix
 - Internet Connection
 
+## Console Access
+
+1. telnet 127.0.0.1 4264 - CBC
+2. telnet 127.0.0.1 4258 - HLR
+3. telnet 127.0.0.1 4242 - BSC
+4. telnet 127.0.0.1 4241 - BTS
+5. telnet 127.0.0.1 4237 - OsmoTRX
 
 
 ## Learn GSM
@@ -62,13 +69,6 @@ rfs@2g-b0x:~ $ LimeUtil --info
 
 
 
-## Console Access
 
-1. telnet 127.0.0.1 4264 - CBC
-2. telnet 127.0.0.1 4258 - HLR
-3. telnet 127.0.0.1 4242 - BSC
-4. telnet 127.0.0.1 4241 - BTS
-5. telnet 127.0.0.1 4237 - OsmoTRX
-## Versions used
 
 
