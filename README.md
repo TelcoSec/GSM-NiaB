@@ -63,9 +63,7 @@ SISO for MIMO use BladeRF
 
 ## LimeSDR
 
-######################################################
-## LimeSuite information summary
-######################################################
+
 
 ### Version information:
 - Library version:      v23.11.0-23.11.0
