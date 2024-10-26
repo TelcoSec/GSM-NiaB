@@ -76,6 +76,9 @@ done
 
 sudo hostnamectl set-hostname 2g-b0x.telecom.rfs
 
+mkdir ~/RFS_OSMOCOM
+cd ~/RFS_OSMOCOM
+
 
 add_osmocom_repo() {
  sudo apt update -y
@@ -98,7 +101,7 @@ echo "Install Basic Packages....\n"
  cmake build-essential gawk gcc g++ gfortran \
  git texinfo bison  wget bzip2 libncurses-dev \
  libssl-dev openssl zlib1g-dev libsqlite3-dev \
- libtool autoconf autoconf-archive automake git-core pkg-config 
+ libtool autoconf autoconf-archive automake git-core pkg-config cpufrequtils
 }
 
 
@@ -178,7 +181,7 @@ qtwebengine5-dev qtbase5-private-dev libqt5gamepad5-dev libqt5svg5-dev \
 libfaad-dev libflac-dev zlib1g-dev libboost-all-dev libasound2-dev pulseaudio libopencv-dev libxml2-dev bison flex \
 ffmpeg libavcodec-dev libavformat-dev libopus-dev doxygen graphviz
 
-
+sudo systemctl daemon-reload
 
 cd /etc/osmocom
 sudo chown osmocom:osmocom *
