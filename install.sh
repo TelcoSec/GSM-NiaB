@@ -165,7 +165,7 @@ sudo apt-get install -y \
 
 
 
-
+export QT_QPA_PLATFORM=offscreen
 
 
 
