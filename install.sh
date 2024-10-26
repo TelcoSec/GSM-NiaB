@@ -164,7 +164,7 @@ sudo apt-get install -y \
     libosmocore-dev
 
 
-
+sudo apt install libxcb-cursor0
 export QT_QPA_PLATFORM=offscreen
 
 
