@@ -1,5 +1,6 @@
+#!/bin/bash
 
-# Debian 12 / Ubuntu 24 - RPI4
+# Debian 12  - RPI4
 ## 15/10/2024
 
 
@@ -15,9 +16,66 @@ echo """
 www.telco-sec.com                                            
 www.learn-telecom.com
 by RFS
+
+RPI4 + LimeSDR + OsmoCom + eSIMs
 """
+show_menu() {
+  clear
+  echo "---------------------------"
+  echo "           Menu           "
+  echo "---------------------------"
+  echo "1. Install Dependencies"
+  echo "2. Install LimeSDR Drivers"
+  echo "3. Install Asterisk"
+  echo "4. All - Full Install"
+  echo "5. Configure OsmoCom"
+  echo "6. Exit"
+  echo "---------------------------"
+  echo -n "Enter your choice: "
+}
+# Main loop
+while true; do
+  show_menu
+  read choice
+
+  case $choice in
+    1)
+      echo "You selected Option 1"
+      # Add your code for Option 1 here
+      read -p "Press Enter to continue..."
+      ;;
+    2)
+      echo "You selected Option 2"
+      # Add your code for Option 2 here
+      read -p "Press Enter to continue..."
+      ;;
+    3)
+      echo "You selected Option 3"
+      # Add your code for Option 3 here
+      read -p "Press Enter to continue..."
+      ;;    
+    4)
+      echo "You selected Option 3"
+      # Add your code for Option 3 here
+      read -p "Press Enter to continue..."
+      ;;
+    5)
+      echo "You selected Option 3"
+      # Add your code for Option 3 here
+      read -p "Press Enter to continue..."
+      ;;
 
 
+      
+    6)
+      echo "Exiting..."
+      break
+      ;;
+    *)
+      echo "Invalid choice. Please try again."
+      ;;
+  esac
+done
 
 sudo hostnamectl set-hostname 2g-b0x.telecom.rfs
 
@@ -30,25 +88,42 @@ add_osmocom_repo() {
 }
 
 install_osmocom() {
+echo "Install Osmocom Packages....\n"
  sudo apt install -y osmo-hlr osmo-msc osmo-mgw osmo-stp osmo-bsc
  sudo apt install -y osmo-ggsn osmo-sgsn osmo-bts-trx osmo-trx-lms osmo-pcu osmo-cbc osmo-cbc-utils
 }
 
-install_basic_tools() {
+install_basic_packages() {
+echo "Install Basic Packages....\n"
  sudo apt install -y telnet \
  iptables git python3-pip python3-flask \
  rpi-imager wireshark tcpdump \
- cardpeek cmake build-essential gawk gcc g++ gfortran \
+ cmake build-essential gawk gcc g++ gfortran \
  git texinfo bison  wget bzip2 libncurses-dev \
- libssl-dev openssl zlib1g-dev libsqlite3-dev
-
-
+ libssl-dev openssl zlib1g-dev libsqlite3-dev \
+ libtool autoconf autoconf-archive automake git-core pkg-config 
 }
+
+
+install_radio_packages() {
+echo "Install Radio Packages....\n"
+sudo apt install -y libhackrf-dev hackrf gr-gsm
+sudo apt remove xtrx-dkms
+sudo apt autoremove
+sudo apt install -y libuhd-dev uhd-host gqrx-sdr  limesuite bladerf cardpeek \
+libsctp-dev libconfig++-dev libconfig-dev libmbedtls-dev \
+libtalloc-dev libgnutls28-dev libmnl-dev \
+libsoapysdr-dev libi2c-dev libusb-1.0-0-dev \
+libwxgtk* freeglut3-dev \
+libi2c-dev libusb-1.0-0-dev libwxgtk* freeglut3-dev sqlite3 
+}
+
 
 
 install_asterisk() {
 # Asterix
 # Docs https://docs.asterisk.org/
+echo "Install Asterisk Packages....\n"
 git clone https://github.com/asterisk/asterisk.git
 cd asterisk
 sudo apt install uuid-dev libedit* libxml2 libxml2-dev libsqlite3-dev
@@ -64,15 +139,9 @@ sudo systemctl enable asterisk
 sudo systemctl restart asterisk
 }
 
-sudo apt install libhackrf-dev hackrf gr-gsm -y
+
 
 sudo apt install -y libdbi-dev libdbd-sqlite3 libortp-dev build-essential libtool autoconf autoconf-archive automake git-core pkg-config libtalloc-dev libpcsclite-dev libpcap-dev
-sudo apt install -y libuhd-dev uhd-host gqrx-sdr  limesuite bladerf
-sudo apt install -y libsctp-dev libconfig++-dev libconfig-dev libmbedtls-dev
-sudo apt install -y libtalloc-dev libgnutls28-dev libmnl-dev
-sudo apt install -y libsoapysdr-dev libi2c-dev libusb-1.0-0-dev
-sudo apt install -y libwxgtk3.0-dev freeglut3-dev
-sudo apt install -y libi2c-dev libusb-1.0-0-dev libwxgtk* freeglut3-dev sqlite3 
 
 
 
