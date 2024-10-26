@@ -20,9 +20,9 @@ sudo apt install -y libuhd-dev uhd-host
 sudo apt install -y wireshark tcpdump gqrx-sdr cardpeek
 sudo apt install -y libsctp-dev libconfig++-dev libconfig-dev libmbedtls-dev
 sudo apt install -y libtalloc-dev libgnutls28-dev libmnl-dev
-
-sudo apt-get install libsoapysdr-dev libi2c-dev libusb-1.0-0-dev
-sudo apt-get install libwxgtk3.0-dev freeglut3-dev
+sudo apt install -y rpi-imager
+sudo apt install -y libsoapysdr-dev libi2c-dev libusb-1.0-0-dev
+sudo apt install -y libwxgtk3.0-dev freeglut3-dev
 
 
 # Asterix
