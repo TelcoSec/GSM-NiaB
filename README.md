@@ -18,11 +18,10 @@ LimeSDR only allow SISO for MIMO use BladeRF
 
 ### Hardware
 
-- LimeSDR
+- LimeSDR + Antennas
 - GSM Phones (unlocked)
-- Antennas
 - SIM Cards
-- SIM Cards reader / writer
+- RPI4 8GB + 1TB NVME
 
 ## Goals
 
@@ -86,7 +85,7 @@ rfs@2g-b0x:~ $ LimeUtil --info
 5. telnet 127.0.0.1 4237 - OsmoTRX
 6. telnet 127.0.0.1 4254 - OsmoMSC
 
-## Learn GSM
+## Learn Telecom
 - https://gsm.learn-telecom.com
 - https://ss7.learn-telecom.com
 - https://diameter.learn-telecom.com
