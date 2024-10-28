@@ -6,6 +6,9 @@
 
 This project aims to build a functional GSM network from scratch, enabling users to make and receive calls and access the internet using standard GSM mobile phones. The network will be built using open-source software and readily available hardware, making it an accessible and educational project for anyone interested in telecommunications.
 
+![RFS GSM Lab](./imgs/RFS_GSM_Lab.png "RFS GSM Lab")
+
+
 ### Features
 
 Call Functionality: Make and receive voice calls between GSM phones connected to the network.
