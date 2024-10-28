@@ -4,9 +4,39 @@
 
 ## Portable GSM / GPRS Stack
 
-The goal of this lab is to create a GSM network with internet access and execute calls between our mobile phones.
+This project aims to build a functional GSM network from scratch, enabling users to make and receive calls and access the internet using standard GSM mobile phones. The network will be built using open-source software and readily available hardware, making it an accessible and educational project for anyone interested in telecommunications.
 
+### Features
+
+Call Functionality: Make and receive voice calls between GSM phones connected to the network.
+Internet Access: Provide internet connectivity to devices on the network.
+Open Source: Utilize open-source software like OpenBTS and Asterisk for flexibility and customization.
+Educational: Learn about GSM network architecture, protocols, and implementation.
+
+### Limitations
 LimeSDR only allow SISO for MIMO use BladeRF
+
+### Hardware
+
+- LimeSDR
+- GSM Phones (unlocked)
+- Antennas
+- SIM Cards
+- SIM Cards reader / writer
+
+## Goals
+
+1. Successfully establish a GSM network with basic call functionality.
+2. Provide internet access to devices on the network.
+3. Explore advanced features like SMS messaging and call routing.
+4. Document the process to make it reproducible for others.
+
+
+## Contributing
+
+Contributions to this project are welcome! 
+Feel free to submit pull requests for bug fixes, feature enhancements, or documentation improvements.
+
 ## OS
 1. Debian 12 RPI4
 2. Linux RPI4-GSM-B0x 6.6.31+rpt-rpi-v8 #1 SMP PREEMPT Debian 1:6.6.31-1+rpt1 (2024-05-29) aarch64 GNU/Linux
@@ -54,7 +84,7 @@ rfs@2g-b0x:~ $ LimeUtil --info
 3. telnet 127.0.0.1 4242 - BSC
 4. telnet 127.0.0.1 4241 - BTS
 5. telnet 127.0.0.1 4237 - OsmoTRX
-
+6. telnet 127.0.0.1 4254 - OsmoMSC
 
 ## Learn GSM
 - https://gsm.learn-telecom.com

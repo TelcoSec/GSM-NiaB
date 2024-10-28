@@ -76,8 +76,8 @@ done
 
 sudo hostnamectl set-hostname 2g-b0x.telecom.rfs
 
-mkdir ~/RFS_OSMOCOM
-cd ~/RFS_OSMOCOM
+mkdir $HOME/RFS_OSMOCOM
+cd $HOME/RFS_OSMOCOM
 
 
 add_osmocom_repo() {
