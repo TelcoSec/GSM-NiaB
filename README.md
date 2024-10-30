@@ -1,4 +1,4 @@
-# GSM In A B0x by RFS
+# GSM NiaB by RFS
 
 
 This project aims to build a functional GSM network from scratch, enabling users to make and receive calls and access the internet using standard GSM mobile phones. The network will be built using open-source software and readily available hardware, making it an accessible and educational project for anyone interested in telecommunications.
