@@ -1,6 +1,0 @@
-# SIM Cards
-
-
-
-
-soon.
