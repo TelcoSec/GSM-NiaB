@@ -1,27 +1,17 @@
 #!/bin/bash
 
-# Debian 12  - RPI4
-## 15/10/2024
 
 
-echo """ 
-
- _____    _                 _____           
-|_   _|  | |               /  ___|          
-  | | ___| | ___ ___ ______\ `--.  ___  ___ 
-  | |/ _ \ |/ __/ _ \______|`--. \/ _ \/ __|
-  | |  __/ | (_| (_) |     /\__/ /  __/ (__ 
-  \_/\___|_|\___\___/      \____/ \___|\___|
-                                            
-www.telco-sec.com                                            
-www.learn-telecom.com
-by RFS
-RPI4 + LimeSDR + OsmoCom + eSIMs
-"""
+# Function to display the menu
 show_menu() {
   clear
+  echo "RFS GSM LAB"
+  echo "www.telco-sec.com"
+  echo "www.learn-telecom.com"
+  echo "by RFS"
+  echo "RPI4 + LimeSDR + OsmoCom + eSIMs"
   echo "---------------------------"
-  echo "      RFS GSM Menu         "
+  echo "      Main Menu"
   echo "---------------------------"
   echo "1. Install Dependencies"
   echo "2. Install LimeSDR Drivers"
@@ -30,56 +20,8 @@ show_menu() {
   echo "5. Configure OsmoCom"
   echo "6. Exit"
   echo "---------------------------"
-  echo -n "Enter your choice: "
+  echo "Enter your choice: "
 }
-# Main loop
-while true; do
-  show_menu
-  read choice
-
-  case $choice in
-    1)
-      echo "You selected Option 1"
-      # Add your code for Option 1 here
-      read -p "Press Enter to continue..."
-      ;;
-    2)
-      echo "2 - Installing LimeSDR Drivers"
-      # Add your code for Option 2 here
-      install_radio_packages
-      read -p "Press Enter to continue..."
-      ;;
-    3)
-      echo "3 - Installing Asterisk"
-      # Add your code for Option 3 here
-      install_asterisk
-      read -p "Press Enter to continue..."
-      ;;    
-    4)
-      echo "You selected Option 3"
-      # Add your code for Option 3 here
-      read -p "Press Enter to continue..."
-      ;;
-    5)
-      echo "You selected Option 3"
-      # Add your code for Option 3 here
-      read -p "Press Enter to continue..."
-      ;;      
-    6)
-      echo "Exiting..."
-      break
-      ;;
-    *)
-      echo "Invalid choice. Please try again."
-      ;;
-  esac
-done
-
-sudo hostnamectl set-hostname 2g-b0x.telecom.rfs
-
-mkdir $HOME/RFS_OSMOCOM
-cd $HOME/RFS_OSMOCOM
-
 
 add_osmocom_repo() {
  sudo apt update -y
@@ -133,6 +75,12 @@ echo "Install Radio Packages....\n"
 
 
 install_asterisk() {
+  echo "Checking for Asterisk..."
+  # Check if Asterisk is already installed
+  if command -v asterisk >/dev/null 2>&1; then
+    echo "Asterisk is already installed."
+  else
+    echo "Asterisk not found. Installing..."
 # Asterix
 # Docs https://docs.asterisk.org/
 echo "Installing Asterisk Packages....\n"
@@ -149,6 +97,8 @@ sudo make install-logrotate
 cd ..
 sudo systemctl enable asterisk
 sudo systemctl restart asterisk
+  fi
+
 }
 
 
@@ -167,12 +117,51 @@ install_other_deps(){
 }
 
 
-sudo apt install libxcb-cursor0
-export QT_QPA_PLATFORM=offscreen
+# Function to get system information
+system_info() {
+  echo "Hostname: $(hostname)"
+  echo "Uptime: $(uptime | awk '{print $3, $4}' | sed 's/,//')"
+  echo "Current User: $(whoami)"
+  echo "OS: $(uname -a)"
+  echo "CPU Info: $(lscpu | grep 'Model name:')"
+  echo "Memory Info: $(free -h)"
+}
 
-LimeUtil --info
+# Function to check disk usage
+disk_usage() {
+  df -h
+}
 
-sudo systemctl daemon-reload
+# Function to list running processes
+list_processes() {
+  ps aux
+}
 
-sudo chown osmocom:osmocom /etc/osmocom
+# Main loop
+while true; do
+  show_menu
+  read choice
 
+  case $choice in
+    1)
+      install_other_deps
+      install_osmocom
+      read -p "Press Enter to continue..."
+      ;;
+    2)
+      install_radio_packages
+      read -p "Press Enter to continue..."
+      ;;
+    3)
+      install_asterisk
+      read -p "Press Enter to continue..."
+      ;;
+    6)
+      echo "Exiting..."
+      exit 0
+      ;;
+    *)
+      echo "Invalid choice. Please try again."
+      ;;
+  esac
+done
