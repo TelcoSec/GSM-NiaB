@@ -1,6 +1,8 @@
 #!/bin/bash
 
-
+RED="\e[31m"
+GREEN="\e[32m"
+ENDCOLOR="\e[0m"
 
 # Function to display the menu
 show_menu() {
@@ -9,7 +11,7 @@ show_menu() {
   echo "www.telco-sec.com"
   echo "www.learn-telecom.com"
   echo "by RFS"
-  echo "RPI4 + LimeSDR + OsmoCom + eSIMs"
+  echo -e "${RED} RPI4 + LimeSDR + OsmoCom + eSIMs ${ENDCOLOR}";
   echo "---------------------------"
   echo "      Main Menu"
   echo "---------------------------"
