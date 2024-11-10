@@ -166,7 +166,7 @@ while true; do
       read -p "Press Enter to continue..."
       ;;
     4)
-      echo "Cpnfiguring GSM LAB ...\n"
+      echo "Configuring GSM LAB ...\n"
       #install_asterisk
       read -p "Press Enter to continue..."
       ;;

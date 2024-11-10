@@ -46,6 +46,9 @@ Feel free to submit pull requests for bug fixes, feature enhancements, or docume
 1. Install in Debian 12 - no GUI
 2. Download my Image Ready for RPI4
 
+
+![RFS GSM Lab](https://assets.redlabs.cloud/gsm-lab/RFS_GSM_B0x.png "RFS GSM Lab")
+
 ## Osmocom Versions
 - OsmoCBC version 0.5.0
 - OsmoHLR version 1.8.0
