@@ -129,7 +129,7 @@ system_info() {
 
 
 
-other()
+other() 
 {
  sudo apt install libxcb-cursor0
 export QT_QPA_PLATFORM=offscreen

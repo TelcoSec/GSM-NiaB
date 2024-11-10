@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Services</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">System Dashboard</a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="/dependencies">Dependencies</a></li>
+            <li class="nav-item"><a class="nav-link" href="/services">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="/arfcn">ARFCN Calculator</a></li>
+            <li class="nav-item"><a class="nav-link" href="/tcpdump">TCPDump Monitor</a></li>
+        </ul>
+    </nav>
+
+    <div class="container mt-5">
+        <h1>Manage System Services</h1>
+
+        {% if success %}
+        <div class="alert alert-success">
+            Service {{ service }} {{ action }}ed successfully!
+        </div>
+        {% endif %}
+
+        <form method="POST">
+            <div class="form-group">
+                <label for="service">Service Name:</label>
+                <input type="text" class="form-control" id="service" name="service" required>
+            </div>
+            <div class="form-group">
+                <label for="action">Action:</label>
+                <select class="form-control" id="action" name="action">
+                    <option value="start">Start</option>
+                    <option value="stop">Stop</option>
+                    <option value="restart">Restart</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <footer class="footer mt-5 py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">
+                <a href="#">Link 1</a> |
+                <a href="#">Link 2</a> |
+                <a href="#">Link 3</a>
+            </span>
+        </div>
+    </footer>
+</body>
+</html>

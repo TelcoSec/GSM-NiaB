@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GSM ARFCN Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+          integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" 1  />
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        .navbar {
+            background-color: #007bff; /* Telecom blue */
+        }
+        .navbar-brand {
+            color: white;
+        }
+        .navbar-nav .nav-link {
+            color: white;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="/">
+            <i class="fas fa-broadcast-tower"></i> Telecom Dashboard
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/dependencies"><i class="fas fa-tools"></i> Dependencies</a></li>
+                <li class="nav-item"><a class="nav-link" href="/services"><i class="fas fa-cogs"></i> Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="/arfcn"><i class="fas fa-wave-square"></i> ARFCN Calculator</a></li>
+                <li class="nav-item"><a class="nav-link" href="/tcpdump"><i class="fas fa-search"></i> TCPDump Monitor</a></li>
+                <li class="nav-item"><a class="nav-link" href="/ssh"><i class="fas fa-terminal"></i> SSH Manager</a></li>
+                <li class="nav-item"><a class="nav-link" href="/grgsm"><i class="fas fa-satellite-dish"></i> grgsm Tool</a></li>
+                <li class="nav-item"><a class="nav-link" href="/config_editor"><i class="fas fa-file-alt"></i> Config Editor</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1>GSM ARFCN Calculator</h1>
+        <p>This tool calculates the uplink and downlink frequencies for a given GSM ARFCN (Absolute Radio Frequency Channel Number).</p>
+        <form method="POST">
+            <div class="form-group">
+                <label for="arfcn">Enter ARFCN:</label>
+                <input type="number" class="form-control" id="arfcn" name="arfcn" min="0" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Calculate</button>
+        </form>
+
+        {% if result %}
+        <div class="mt-3">
+            <h3>Result:</h3>
+            <p>{{ result }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <footer class="footer mt-5 py-3">
+        <div class="container text-center">
+            <span class="text-white">
+                &copy;  Telecom Dashboard
+            </span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

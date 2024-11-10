@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Configuration Editor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .nav-tabs .nav-link.active {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">System Dashboard</a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="/dependencies">Dependencies</a></li>
+            <li class="nav-item"><a class="nav-link" href="/services">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="/arfcn">ARFCN Calculator</a></li>
+            <li class="nav-item"><a class="nav-link" href="/tcpdump">TCPDump Monitor</a></li>
+            <li class="nav-item"><a class="nav-link" href="/ssh">SSH Manager</a></li>
+            <li class="nav-item"><a class="nav-link" href="/grgsm">grgsm Tool</a></li>
+            <li class="nav-item"><a class="nav-link" href="/config_editor">Config Editor</a></li>
+        </ul>
+    </nav>
+
+    <div class="container mt-5">
+        <h1>Configuration Editor</h1>
+
+        <ul class="nav nav-tabs" id="configTabs" role="tablist">
+            {% for filename in files %}
+            <li class="nav-item">
+                <a class="nav-link {% if loop.first %}active{% endif %}" id="{{ filename }}-tab" data-toggle="tab" href="#{{ filename }}" role="tab" aria-controls="{{ filename }}" aria-selected="{% if loop.first %}true{% else %}false{% endif %}">{{ filename }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <div class="tab-content" id="configTabsContent">
+            {% for filename, content in files.items() %}
+            <div class="tab-pane fade {% if loop.first %}show active{% endif %}" id="{{ filename }}" role="tabpanel" aria-labelledby="{{ filename }}-tab">
+                <textarea class="form-control mt-3" rows="15">{{ content }}</textarea>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <footer class="footer mt-5 py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">
+                <a href="#">Link 1</a> |
+                <a href="#">Link 2</a> |
+                <a href="#">Link 3</a>
+            </span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

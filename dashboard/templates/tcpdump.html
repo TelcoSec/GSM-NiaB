@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TCPDump Monitor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">System Dashboard</a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="/dependencies">Dependencies</a></li>
+            <li class="nav-item"><a class="nav-link" href="/services">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="/arfcn">ARFCN Calculator</a></li>
+            <li class="nav-item"><a class="nav-link" href="/tcpdump">TCPDump Monitor</a></li>
+        </ul>
+    </nav>
+
+    <div class="container mt-5">
+        <h1>TCPDump Monitor</h1>
+
+        <form method="POST">
+            <div class="form-group">
+                <label for="filter">GSM Filters:</label>
+                <select class="form-control" id="filter" name="filter">
+                    <option value="gsmtap">GSMTAP</option>
+                    <option value="lapdm">LAPDm</option>
+                    <option value="gsm_a_dtap">GSM A-I/F DTAP</option>
+                    <option value="gsm_a_rr">GSM A-I/F RR</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Start Monitoring</button>
+
+            {% if output %}
+            <div class="mt-3">
+                <h3>Output:</h3>
+                <pre>{{ output }}</pre>
+            </div>
+            {% endif %}
+        </form>
+
+    </div>
+
+    <footer class="footer mt-5 py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">
+                <a href="#">Link 1</a> |
+                <a href="#">Link 2</a> |
+                <a href="#">Link 3</a>
+            </span>
+        </div>
+    </footer>
+</body>
+</html>

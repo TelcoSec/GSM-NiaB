@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OsmoHLR Service Dashboard</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .sidebar {
+      position: fixed;
+      top: 56px; /* Adjust for navbar height */
+      bottom: 0;
+      left: 0;
+      z-index: 1000; /* Behind the navbar */
+      padding: 48px 0 0; /* Height of navbar */
+      box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    }
+
+    .sidebar-sticky {
+      position: relative;
+      top: 0;
+      height: calc(100vh - 48px);
+      padding-top: .5rem;
+      overflow-x: hidden;
+      overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    }
+
+    @media (max-width: 767.98px) {
+      .sidebar {
+        top: 0;
+        height: 100vh;
+        transform: translateX(-100%);
+        transition: transform .3s ease-in-out;
+      }
+
+      .sidebar.show {
+        transform: translateX(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">System Dashboard</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Settings</a>
+        </li>
+        </ul>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="/">
+                Dashboard
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="#">OsmoMSC</a>
+	      <a class="nav-link" href="#">OsmoBSC</a>
+              <a class="nav-link" href="#">OsmoHLR</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+
+<div class="container mt-5">
+        <h1>System Stats</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">CPU Usage</h5>
+                        <p class="card-text">{{ cpu }}%</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Memory Usage</h5>
+                        <p class="card-text">{{ mem }}%</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Disk Usage</h5>
+                        <p class="card-text">{{ disk }}%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+<br>
+<br>
+          <h1>System Services</h1>
+        </div>
+
+
+
+        <div class="table-responsive">
+          <table class="table table-striped table-sm">
+            <thead>
+              <tr>
+                <th>Service</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for service_name, service_data in services.items() %}
+              <tr>
+                <td>{{ service_data.name }}</td>
+                <td>{{ service_data.status }}</td>
+                <td>
+                  <a href="/control/{{ service_name }}/start" class="btn btn-success btn-sm">Start</a>
+                  <a href="/control/{{ service_name }}/stop" class="btn btn-danger btn-sm">Stop</a>
+                  <a href="/control/{{ service_name }}/restart" class="btn btn-warning btn-sm">Restart</a>
+		<a href="/control/{{ service_name }}/enable" class="btn btn-warning btn-sm">Enable</a>
+		<a href="/control/{{ service_name }}/disable" class="btn btn-warning btn-sm">Disable</a>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

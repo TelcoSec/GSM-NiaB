@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SSH Manager</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">System Dashboard</a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="/dependencies">Dependencies</a></li>
+            <li class="nav-item"><a class="nav-link" href="/services">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="/arfcn">ARFCN Calculator</a></li>
+            <li class="nav-item"><a class="nav-link" href="/tcpdump">TCPDump Monitor</a></li>
+            <li class="nav-item"><a class="nav-link" href="/ssh">SSH Manager</a></li>
+        </ul>
+    </nav>
+
+    <div class="container mt-5">
+        <h1>SSH Server Manager</h1>
+
+        {% if status %}
+        <div class="alert alert-info">
+            {{ status }}
+        </div>
+        {% endif %}
+
+        <h2>Service Control</h2>
+        <form method="POST">
+            <button type="submit" class="btn btn-success" name="action" value="start">Start</button>
+            <button type="submit" class="btn btn-danger" name="action" value="stop">Stop</button>
+            <button type="submit" class="btn btn-warning" name="action" value="restart">Restart</button>
+            <button type="submit" class="btn btn-info" name="action" value="status">Status</button>
+        </form>
+
+        <h2>Configuration</h2>
+        <form method="POST">
+            <div class="form-group">
+                <label for="config">sshd_config:</label>
+                <textarea class="form-control" id="config" name="config" rows="15">{{ config }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Configuration</button>
+        </form>
+    </div>
+
+    <footer class="footer mt-5 py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">
+                <a href="#">Link 1</a> |
+                <a href="#">Link 2</a> |
+                <a href="#">Link 3</a>
+            </span>
+        </div>
+    </footer>
+</body>
+</html>
