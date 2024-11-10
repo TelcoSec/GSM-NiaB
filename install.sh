@@ -128,6 +128,22 @@ system_info() {
 }
 
 
+
+other()
+{
+ sudo apt install libxcb-cursor0
+export QT_QPA_PLATFORM=offscreen
+
+LimeUtil --info
+
+sudo systemctl daemon-reload
+
+sudo chown osmocom:osmocom /etc/osmocom
+
+}
+
+
+
 # Main loop
 while true; do
   show_menu
