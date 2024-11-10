@@ -81,22 +81,22 @@ install_asterisk() {
     echo "Asterisk is already installed."
   else
     echo "Asterisk not found. Installing..."
-# Asterix
-# Docs https://docs.asterisk.org/
-echo "Installing Asterisk Packages....\n"
-git clone https://github.com/asterisk/asterisk.git
-cd asterisk
-sudo apt install uuid-dev libedit* libxml2 libxml2-dev libsqlite3-dev libpcsclite-dev libpcap-dev
-./configure --with-jansson-bundled
-make
-sudo make install
-sudo make config
-sudo make samples
-sudo make basic-pbx
-sudo make install-logrotate
-cd ..
-sudo systemctl enable asterisk
-sudo systemctl restart asterisk
+  # Asterix
+  # Docs https://docs.asterisk.org/
+  echo "Installing Asterisk Packages....\n"
+  git clone https://github.com/asterisk/asterisk.git
+  cd asterisk
+  sudo apt install uuid-dev libedit* libxml2 libxml2-dev libsqlite3-dev libpcsclite-dev libpcap-dev
+  ./configure --with-jansson-bundled
+  make
+  sudo make install
+  sudo make config
+  sudo make samples
+  sudo make basic-pbx
+  sudo make install-logrotate
+  cd ..
+  sudo systemctl enable asterisk
+  sudo systemctl restart asterisk
   fi
 
 }
@@ -127,15 +127,6 @@ system_info() {
   echo "Memory Info: $(free -h)"
 }
 
-# Function to check disk usage
-disk_usage() {
-  df -h
-}
-
-# Function to list running processes
-list_processes() {
-  ps aux
-}
 
 # Main loop
 while true; do
@@ -144,15 +135,25 @@ while true; do
 
   case $choice in
     1)
+      echo "Install Dependencies ...\n"
+      install_basic_packages
       install_other_deps
+      add_osmocom_repo
       install_osmocom
       read -p "Press Enter to continue..."
       ;;
     2)
+      echo "Install LimeSDR Drivers ...\n"
       install_radio_packages
       read -p "Press Enter to continue..."
       ;;
+    4)
+      echo "Cpnfiguring GSM LAB ...\n"
+      #install_asterisk
+      read -p "Press Enter to continue..."
+      ;;
     3)
+      echo "Install Asterisk ...\n"
       install_asterisk
       read -p "Press Enter to continue..."
       ;;
