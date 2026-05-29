@@ -14,8 +14,8 @@ export default defineEventHandler(async (event) => {
       } else {
         return { success: false, content: '# Repositories file not found.' };
       }
-    } catch (error: any) {
-      return { success: false, error: error.message };
+    } catch (error: unknown) {
+      return { success: false, error: error instanceof Error ? error.message : String(error) };
     }
   }
 
@@ -38,13 +38,13 @@ export default defineEventHandler(async (event) => {
       
       try {
         execSync('sudo apt update -y');
-      } catch (e) {
+      } catch {
         // Ignore network or apt locking errors
       }
 
       return { success: true, message: 'Repositories file updated successfully!' };
-    } catch (error: any) {
-      return { success: false, error: error.message };
+    } catch (error: unknown) {
+      return { success: false, error: error instanceof Error ? error.message : String(error) };
     }
   }
 

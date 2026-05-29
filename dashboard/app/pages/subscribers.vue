@@ -109,7 +109,7 @@ const formatDate = (dateStr) => {
     const date = new Date(dateStr);
     if (isNaN(date.getTime())) return dateStr;
     return date.toLocaleString();
-  } catch (e) {
+  } catch {
     return dateStr;
   }
 };

@@ -8,7 +8,7 @@ export default defineEventHandler(async () => {
     const rows = stmt.all();
     db.close();
     return { success: true, subscribers: rows };
-  } catch (error: any) {
-    return { success: false, error: error.message };
+  } catch (error: unknown) {
+    return { success: false, error: error instanceof Error ? error.message : String(error) };
   }
 });

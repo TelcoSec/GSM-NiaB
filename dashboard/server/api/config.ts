@@ -38,8 +38,8 @@ export default defineEventHandler(async (event) => {
       } else {
         return { success: false, content: `# Configuration file not found at ${path}` };
       }
-    } catch (error: any) {
-      return { success: false, error: error.message };
+    } catch (error: unknown) {
+      return { success: false, error: error instanceof Error ? error.message : String(error) };
     }
   }
 
@@ -72,20 +72,20 @@ export default defineEventHandler(async (event) => {
       if (service.startsWith('asterisk-')) {
         try {
           execSync(`sudo asterisk -rx "reload"`);
-        } catch (e) {
+        } catch {
           // If asterisk is not running, ignore reload error
         }
       } else {
         try {
           execSync(`sudo systemctl restart ${service}`);
-        } catch (e) {
+        } catch {
           // If systemd service is inactive, ignore restart error
         }
       }
 
       return { success: true, message: `Configuration for ${service} updated and service reloaded.` };
-    } catch (error: any) {
-      return { success: false, error: error.message };
+    } catch (error: unknown) {
+      return { success: false, error: error instanceof Error ? error.message : String(error) };
     }
   }
 

@@ -45,10 +45,11 @@ export default defineEventHandler(async (event) => {
       success: true,
       output
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const err = error as { stdout?: Buffer; stderr?: Buffer; message?: string };
     return {
       success: false,
-      output: error.stdout?.toString() || error.stderr?.toString() || error.message
+      output: err.stdout?.toString() || err.stderr?.toString() || err.message || 'Unknown error'
     };
   }
 });

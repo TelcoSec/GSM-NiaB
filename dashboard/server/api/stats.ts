@@ -38,7 +38,9 @@ function getDiskUsage() {
       const percentStr = parts[4].replace('%', '');
       return parseInt(percentStr, 10) || 0;
     }
-  } catch (e) {}
+  } catch {
+    // Disk command failed, return default
+  }
   return 0;
 }
 
@@ -46,7 +48,7 @@ function getServiceStatus(service: string) {
   try {
     const activeState = execSync(`systemctl is-active ${service}`).toString().trim();
     return activeState;
-  } catch (e) {
+  } catch {
     return 'inactive';
   }
 }
@@ -67,7 +69,9 @@ export default defineEventHandler(async () => {
         netSent += parseInt(parts[8], 10) || 0;
       }
     }
-  } catch (e) {}
+  } catch {
+    // Proc files not available or unreadable
+  }
 
   const services = [
     'osmo-hlr',
