@@ -32,10 +32,8 @@ jobs:
 
       - name: Deploy to Cloudflare Pages
         if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
-        uses: cloudflare/pages-action@v1
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: gsm-dashboard
-          directory: ./dashboard/.output/public
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          command: pages deploy ./dashboard/.output/public --project-name=gsm-dashboard --commit-dirty=true
