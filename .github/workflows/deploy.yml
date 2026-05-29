@@ -36,6 +36,13 @@ jobs:
           ls -la ./dashboard/.output/public || echo "ERROR: .output/public not found!"
           echo "File count: $(find ./dashboard/.output/public -type f | wc -l)"
 
+      - name: Create Cloudflare Pages Project (if not exists)
+        if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx wrangler@latest pages project create gsm-dashboard --production-branch=main || true
+
       - name: Deploy to Cloudflare Pages
         if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
         env:
